@@ -9,7 +9,7 @@ A complete end-to-end Bluetooth ADC monitoring solution featuring real-time data
 - 🔄 Robust noise reduction through sample averaging
 - 📊 Built-in statistics and debug monitoring
 
-🎥 **[Watch Demo Video](https://drive.google.com/your_video_link_here)**  
+🎥 **[Watch Demo Video](https://drive.google.com/drive/folders/1TVJAYx-mW3U3cvdKZBaI1Kia0P8LT4Jr?usp=drive_link)**  
 
 ---
 
@@ -86,13 +86,6 @@ This project implements a minimal yet robust system that:
 - Error handling and recovery mechanisms
 
 ---
-
-## 📱 Mobile App Compatibility
-
-### Recommended Applications
-- **Serial Bluetooth Terminal** (Android) - *Primary recommendation*
-- **Bluetooth Terminal** (iOS/Android)
-- **Custom Jetpack Compose App** - *For advanced visualization*
 
 ### Supported Features
 - Real-time JSON packet reception
