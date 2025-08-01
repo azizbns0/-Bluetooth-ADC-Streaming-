@@ -1,83 +1,281 @@
-# ESP32 Bluetooth ADC Monitor
+# 🔌 Bluetooth ADC Streaming System
 
-This project implements an **ESP32-based Bluetooth ADC streaming system**. The firmware reads analog voltage samples from a floating GPIO pin (e.g., GPIO34), processes the data, and streams the results via Bluetooth to a mobile device. A mobile plotting app or terminal can be used to visualize the streamed values.
+
+A complete end-to-end Bluetooth ADC monitoring solution featuring real-time data streaming from ESP32 to mobile devices.
+
+**Key Features:**
+- 📟 ESP32 firmware that continuously samples ADC data and transmits over Bluetooth
+- 📱 Mobile-compatible JSON data format for real-time visualization  
+- 🔄 Robust noise reduction through sample averaging
+- 📊 Built-in statistics and debug monitoring
+
+🎥 **[Watch Demo Video](https://drive.google.com/your_video_link_here)**  
 
 ---
 
-## 🚀 Features
+## 📚 Table of Contents
 
-- Samples ADC at **10Hz** (every 100 ms)
-- Averages 4 readings per sample to reduce noise
-- Sends packets of 10 samples every second as **JSON over Bluetooth**
-- Real-time plotting support via compatible mobile app
-- Serial debug output includes raw values and statistics
+- [Project Overview](#-project-overview)
+- [Project Structure](#-project-structure)  
+- [Hardware Requirements](#-hardware-requirements)
+- [Firmware Features](#-firmware-features)
+- [Mobile App Compatibility](#-mobile-app-compatibility)
+- [Installation & Setup](#-installation--setup)
+- [Usage Instructions](#-usage-instructions)
+- [Technical Specifications](#-technical-specifications)
+- [Data Format](#-data-format)
+- [Troubleshooting](#-troubleshooting)
+- [License](#-license)
+
+---
+
+## 🎯 Project Overview
+
+This project implements a minimal yet robust system that:
+
+1. **Reads** analog voltage from a floating ADC pin (GPIO34)
+2. **Processes** the data with noise reduction techniques  
+3. **Streams** formatted JSON packets via Bluetooth Classic
+4. **Visualizes** real-time data on mobile devices or terminals
+
+
+---
+
+## 📁 Project Structure
+
+```
+-Bluetooth-ADC-Streaming-/
+├── ESP32ADCMonitor/          # Main Arduino project folder
+├── Firmware/                 # Core firmware implementation  
+├── README.md                 # Project documentation
+└── demo_video.mp4           # Demo recording
+```
 
 ---
 
 ## 🔧 Hardware Requirements
 
-- ESP32 Dev Board
-- Floating analog input pin (e.g., GPIO34)
-- Android phone with Bluetooth terminal app
+| Component | Specification |
+|-----------|---------------|
+| **Microcontroller** | ESP32 Development Board |
+| **ADC Pin** | GPIO34 (floating analog input) |
+| **Power Supply** | USB or 3.3V/5V external |
+| **Mobile Device** | Android with Bluetooth Classic support |
 
 ---
 
-## 📱 Mobile App
+## 📟 Firmware Features
 
-The Bluetooth stream can be visualized using:
-- **Serial Bluetooth Terminal** (recommended for Android)
-- Other apps that support classic Bluetooth and real-time data streaming
+### Core Functionality
+- **🔄 10Hz Sampling Rate**: Consistent 100ms intervals for stable data acquisition
+- **📊 Noise Reduction**: 4-sample averaging per measurement point
+- **📦 Batch Processing**: Groups 10 samples per JSON packet (1-second intervals)
+- **🔗 Bluetooth Classic**: Uses `BluetoothSerial.h` for reliable communication
+- **📈 Statistics**: Real-time min/max/avg/range calculations
 
----
+### ADC Configuration
+- **Resolution**: 12-bit precision (0-4095 digital range)
+- **Attenuation**: `ADC_11db` for full 0-3.3V analog range
+- **Reference**: Internal ESP32 voltage reference
+- **Pin**: GPIO34 (ADC1_CH6) - hardware optimized
 
-## 🔌 Getting Started
-
-1. **Flash the Firmware**
-   - Clone the repository:
-     ```bash
-     git clone [https://github.com/azizbns0/ESP32ADCMonitor.git](https://github.com/azizbns0/-Bluetooth-ADC-Streaming-.git)
-     ```
-   - Open the project in Arduino IDE or PlatformIO
-   - Connect ESP32 via USB and flash the code
-
-2. **Connect via Bluetooth**
-   - Pair with device named `ESP32_ADC_Streamer`
-   - Use terminal app to receive and plot the JSON packets
-
-3. **Sample JSON Output**
-   ```json
-   {
-     "timestamp": 123456,
-     "samples": [0.031, 0.045, 0.033, 0.028, ...]
-   }
-   ```
+### Debug Features
+- Serial monitor output with detailed statistics
+- Bluetooth connection status indicators
+- Sample transmission confirmations
+- Error handling and recovery mechanisms
 
 ---
 
-## 🛠️ Firmware Overview
+## 📱 Mobile App Compatibility
 
-- `BluetoothSerial.h` used for Bluetooth Classic
-- `analogReadResolution(12)` with `ADC_11db` for full 0–3.3V range
-- JSON packets created every 10 samples
-- Includes transmission statistics (min, max, avg, range)
+### Recommended Applications
+- **Serial Bluetooth Terminal** (Android) - *Primary recommendation*
+- **Bluetooth Terminal** (iOS/Android)
+- **Custom Jetpack Compose App** - *For advanced visualization*
+
+### Supported Features
+- Real-time JSON packet reception
+- Data parsing and timestamp handling
+- Graphical plotting capabilities
+- Connection management and auto-reconnect
 
 ---
 
+## 🛠️ Installation & Setup
 
-watch the video:  
-🔗 *[Insert link to screen recording]*
+### 1. Flash the Firmware
 
----
-
-## 📂 Repository Structure
-
+```bash
+# Clone the repository
+git clone https://github.com/azizbns0/-Bluetooth-ADC-Streaming-.git
+cd -Bluetooth-ADC-Streaming-
 ```
-ESP32ADCMonitor/
-├── ESP32ADCMonitor         # Main app file
-├── Firmware                # Main firmware file
-├── README.md               # Project instructions (this file)
-└── demo_video.mp4          
+
+**Using Arduino IDE:**
+1. Open `ESP32ADCMonitor/ESP32ADCMonitor.ino`
+2. Install ESP32 board support package
+3. Select board: "ESP32 Dev Module"
+4. Set upload speed: 115200 baud
+5. Upload to your ESP32
+
+**Using PlatformIO:**
+1. Import project folder
+2. Build and upload via PlatformIO interface
+
+### 2. Verify Installation
+
+1. Open Serial Monitor (115200 baud)
+2. Confirm ADC sampling initialization
+3. Check Bluetooth device advertising as `ESP32_ADC_Streamer`
+
+---
+
+## 🚀 Usage Instructions
+
+### Step 1: Power Up & Connect
+1. Power your ESP32 via USB or external supply
+2. Wait for Bluetooth initialization (check Serial Monitor)
+3. ESP32 will advertise as `ESP32_ADC_Streamer`
+
+### Step 2: Mobile Connection
+1. Enable Bluetooth on your mobile device
+2. Pair with `ESP32_ADC_Streamer`
+3. Open your preferred Bluetooth terminal app
+4. Connect to the paired ESP32 device
+
+### Step 3: Data Monitoring
+- JSON packets will stream every second
+- Each packet contains 10 voltage samples
+- Monitor Serial output for debug information
+- Use terminal app's plotting features for visualization
+
+---
+
+## ⚙️ Technical Specifications
+
+| Parameter | Value | Notes |
+|-----------|-------|-------|
+| **Sampling Frequency** | 10 Hz | 100ms per sample |
+| **Averaging** | 4 readings/sample | Noise reduction |
+| **Packet Rate** | 1 Hz | 10 samples per packet |
+| **ADC Resolution** | 12-bit | 0-4095 digital range |
+| **Voltage Range** | 0-3.3V | With 11dB attenuation |
+| **Bluetooth Protocol** | Classic SPP | Serial Port Profile |
+| **Data Format** | JSON | Human & machine readable |
+
+---
+
+## 📊 Data Format
+
+### JSON Packet Structure
+```json
+{
+  "timestamp": 123456789,
+  "samples": [0.031, 0.045, 0.033, 0.028, 0.052, 0.041, 0.038, 0.029, 0.047, 0.035]
+}
+```
+
+### Field Descriptions
+- **`timestamp`**: System uptime in milliseconds
+- **`samples`**: Array of 10 voltage readings (float, volts)
+- **Range**: Each sample represents averaged voltage over 4 ADC readings
+
+### Transmission Statistics
+The firmware also outputs debug statistics via Serial:
+- **Min/Max Values**: Voltage range in current packet  
+- **Average**: Mean voltage across 10 samples
+- **Range**: Difference between max and min values
+
+---
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+**Bluetooth Connection Fails**
+- Verify ESP32 is powered and advertising
+- Clear Bluetooth cache on mobile device
+- Ensure no other device is connected to ESP32
+
+**No Data Received**
+- Check Serial Monitor for ADC sampling activity
+- Verify JSON formatting in debug output
+- Confirm mobile app supports Classic Bluetooth (not BLE)
+
+**Erratic Readings**
+- Ensure GPIO34 is properly floating or connected to signal source
+- Check power supply stability (USB vs battery)
+- Verify ADC reference voltage configuration
+
+**Performance Issues**  
+- Monitor Serial output for transmission delays
+- Check mobile device Bluetooth buffer settings
+- Reduce sampling rate if needed (modify firmware)
+
+### Debug Commands
+```cpp
+// Enable verbose debugging (add to setup())
+Serial.setDebugOutput(true);
+
+// Monitor ADC raw values
+Serial.println("Raw ADC: " + String(analogRead(ADC_PIN)));
+```
+
+---
+
+## 🧰 Tech Stack Summary
+
+| Layer | Technology | Purpose |
+|-------|------------|---------|
+| **Hardware** | ESP32, GPIO34 | MCU and ADC interface |
+| **Firmware** | Arduino C++, BluetoothSerial | Data acquisition & transmission |
+| **Communication** | Bluetooth Classic (SPP) | Wireless data streaming |
+| **Data Format** | JSON | Structured, parseable packets |
+| **Mobile** | Android/iOS Terminal Apps | Data reception & visualization |
+| **Development** | Arduino IDE, PlatformIO | Code development & deployment |
+
+---
+
+## 🎯 Future Enhancements
+
+- [ ] **Web Dashboard**: Browser-based real-time monitoring
+- [ ] **Multi-channel ADC**: Support for additional analog inputs  
+- [ ] **Data Logging**: SD card storage for offline analysis
+- [ ] **WiFi Streaming**: Alternative to Bluetooth for longer range
+- [ ] **Custom Mobile App**: Native Android/iOS with advanced plotting
+- [ ] **Sensor Fusion**: Integration with I2C/SPI sensors
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit issues, feature requests, or pull requests.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
 
 ## 📄 License
 
-This project is under the MIT License.
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙌 Author
+
+**Mohamed Aziz Ben Souissi**  
+*Embedded Systems Engineer*
+
+[![LinkedIn](https://www.linkedin.com/in/mohamed-aziz-ben-souissi/)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=flat&logo=github)](https://github.com/azizbns0)
+[![Email](https://img.shields.io/badge/Email-Contact-red?style=flat&logo=gmail)](mohamedazizbensouissi@gmail.com)
+
+
+---
+
+*⭐ If this project helped you, please consider giving it a star on GitHub!*
