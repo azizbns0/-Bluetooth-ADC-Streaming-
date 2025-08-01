@@ -237,32 +237,6 @@ Serial.println("Raw ADC: " + String(analogRead(ADC_PIN)));
 
 ---
 
-## 🎯 Future Enhancements
-
-- [ ] **Web Dashboard**: Browser-based real-time monitoring
-- [ ] **Multi-channel ADC**: Support for additional analog inputs  
-- [ ] **Data Logging**: SD card storage for offline analysis
-- [ ] **WiFi Streaming**: Alternative to Bluetooth for longer range
-- [ ] **Custom Mobile App**: Native Android/iOS with advanced plotting
-- [ ] **Sensor Fusion**: Integration with I2C/SPI sensors
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit issues, feature requests, or pull requests.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
 ---
 
@@ -277,5 +251,3 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 
 ---
-
-*⭐ If this project helped you, please consider giving it a star on GitHub!*
