@@ -35,7 +35,7 @@ The Bluetooth stream can be visualized using:
 1. **Flash the Firmware**
    - Clone the repository:
      ```bash
-     git clone https://github.com/azizbns0/ESP32ADCMonitor.git
+     git clone [https://github.com/azizbns0/ESP32ADCMonitor.git](https://github.com/azizbns0/-Bluetooth-ADC-Streaming-.git)
      ```
    - Open the project in Arduino IDE or PlatformIO
    - Connect ESP32 via USB and flash the code
@@ -63,11 +63,8 @@ The Bluetooth stream can be visualized using:
 
 ---
 
-## 📹 Demo
 
-![Demo](https://github.com/azizbns0/ESP32ADCMonitor/assets/demo.gif)
-
-Or watch the video:  
+watch the video:  
 🔗 *[Insert link to screen recording]*
 
 ---
@@ -76,32 +73,10 @@ Or watch the video:
 
 ```
 ESP32ADCMonitor/
-├── ESP32ADCMonitor.ino     # Main firmware file
+├── ESP32ADCMonitor         # Main app file
+├── Firmware                # Main firmware file
 ├── README.md               # Project instructions (this file)
-├── LICENSE
-└── demo_video.mp4          # Optional: Screen recording demo
-```
-
----
-
-## 📤 How to Push the BLE Firmware
-
-To push your code to GitHub:
-
-```bash
-# Add new files
-git add .
-
-# Commit changes
-git commit -m "Added BLE firmware for ESP32 ADC streaming"
-
-# Push to GitHub
-git push origin main
-```
-
-Make sure you're in the correct repository folder before running these commands.
-
----
+└── demo_video.mp4          
 
 ## 📄 License
 
