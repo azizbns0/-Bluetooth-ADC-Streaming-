@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Theme Colors -->
+    <color name="background_primary">#0F0F23</color>
+    <color name="background_secondary">#1A1A2E</color>
+    <color name="card_background">#16213E</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#E6E6FA</color>
+    <color name="text_secondary">#9B9BC5</color>
+    <color name="text_tertiary">#6A6A85</color>
+
+    <!-- Accent Colors -->
+    <color name="accent_color">#00D4FF</color>
+    <color name="accent_dark">#0099CC</color>
+    <color name="accent_light">#66E0FF</color>
+
+    <!-- Status Colors -->
+    <color name="success_color">#00FF88</color>
+    <color name="success_background">#0A3D2E</color>
+    <color name="error_color">#FF4757</color>
+    <color name="error_background">#3D0A1A</color>
+    <color name="warning_color">#FFA502</color>
+    <color name="warning_background">#3D2A0A</color>
+    <color name="info_color">#3742FA</color>
+    <color name="info_background">#1A1D3D</color>
+
+    <!-- Chart Colors -->
+    <color name="chart_background">#0A0A1A</color>
+    <color name="chart_line">#00D4FF</color>
+    <color name="chart_fill">#1A3D4D</color>
+    <color name="grid_color">#2D2D4D</color>
+
+    <!-- Button Colors -->
+    <color name="button_text">#FFFFFF</color>
+    <color name="button_background">#00D4FF</color>
+    <color name="button_disabled">#4A4A6A</color>
+
+    <!-- Log Colors -->
+    <color name="log_background">#0A0A1A</color>
+    <color name="log_text">#B3B3D9</color>
+    <color name="log_header">#00D4FF</color>
+    <color name="log_divider">#2D2D4D</color>
+
+    <!-- Material Design Colors (compatibility) -->
+    <color name="colorPrimary">@color/accent_color</color>
+    <color name="colorPrimaryDark">@color/accent_dark</color>
+    <color name="colorAccent">@color/accent_color</color>
+
+    <!-- Additional UI Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Indicator Colors -->
+    <color name="indicator_connected">#00FF88</color>
+    <color name="indicator_disconnected">#FF4757</color>
+    <color name="indicator_connecting">#FFA502</color>
+</resources>

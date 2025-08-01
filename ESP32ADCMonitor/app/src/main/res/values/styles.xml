@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/accent_color</item>
+        <item name="colorPrimaryDark">@color/accent_dark</item>
+        <item name="colorAccent">@color/accent_color</item>
+        <item name="android:windowBackground">@color/background_primary</item>
+        <item name="android:statusBarColor">@color/background_primary</item>
+        <item name="android:navigationBarColor">@color/background_primary</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+    </style>
+
+    <!-- Card styles -->
+    <style name="FuturisticCard" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">8dp</item>
+        <item name="cardBackgroundColor">@color/card_background</item>
+        <item name="contentPadding">16dp</item>
+    </style>
+
+    <style name="StatsCard" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="cardBackgroundColor">@color/card_background</item>
+        <item name="contentPadding">16dp</item>
+    </style>
+
+    <!-- Button styles -->
+    <style name="FuturisticButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="backgroundTint">@color/accent_color</item>
+        <item name="android:textColor">@color/button_text</item>
+        <item name="cornerRadius">24dp</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.1</item>
+    </style>
+
+    <style name="SecondaryButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="backgroundTint">@color/warning_color</item>
+        <item name="android:textColor">@color/button_text</item>
+        <item name="cornerRadius">24dp</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.1</item>
+    </style>
+
+    <!-- Text styles -->
+    <style name="HeaderText">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="SubHeaderText">
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="StatsLabelText">
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="StatsValueText">
+        <item name="android:textColor">@color/accent_color</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="LogText">
+        <item name="android:textColor">@color/log_text</item>
+        <item name="android:textSize">11sp</item>
+
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <!-- Animation styles -->
+
+</resources>
