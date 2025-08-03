@@ -11,7 +11,7 @@ A complete end-to-end Bluetooth ADC monitoring solution featuring real-time data
 - ✅ ESP32 firmware with floating ADC pin sampling (100ms intervals)
 - ✅ Custom Android app with real-time plotting and data visualization
 - ✅ Bluetooth Classic communication with JSON data packets
-- ✅ Professional UI with live statistics and comprehensive logging
+- ✅ UI with live statistics and comprehensive logging
 
 🎥 **[Watch Demo Video](https://drive.google.com/drive/folders/1TVJAYx-mW3U3cvdKZBaI1Kia0P8LT4Jr?usp=drive_link)**  
 
@@ -357,10 +357,6 @@ The Android app calculates:
 
 ---
 
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
-
 **Development Setup:**
 1. Fork the repository
 2. Create feature branch: `git checkout -b feature/AmazingFeature`
@@ -388,13 +384,5 @@ Contributions, issues, and feature requests are welcome!
 
 ---
 
-## 🌟 Acknowledgments
 
-- **Espressif Systems** for the ESP32 platform and comprehensive documentation
-- **Android Open Source Project** for the mobile development framework
-- **PhilJay/MPAndroidChart** for the professional charting library
-- **Arduino Community** for the extensive embedded development ecosystem
-- **Material Design Team** for the modern UI/UX guidelines
-
----
 
